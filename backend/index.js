@@ -10,12 +10,13 @@ require("dotenv").config()
 const db = require("./models")
 
 const corsOptions = {
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:5173/login"
-
-    ],
+    origin:(origin,callback)=>{
+        if (origin === "http://localhost:5173" || origin ==="http://localhost:5174") {
+            callback(null,true)
+        }else{
+            callback(new Error("Not allowed by cors"))
+        }
+    },
     credentials: true,
     allowedHeaders: ["Content-type", "Authorization"],
     methods: ["GET","POST","PUT","DELETE"]
