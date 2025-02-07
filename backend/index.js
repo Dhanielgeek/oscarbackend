@@ -9,16 +9,17 @@ require("dotenv").config()
 
 const db = require("./models")
 
-
-  const  origin= [
+const corsOptions = {
+    origin: [
       "http://localhost:5173",
       "http://localhost:5174",
       "http://localhost:5173/login"
 
-    ]
+    ],
+    credentials: true
+  };
   
-  
-  app.use(cors(origin));
+  app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api", blogRoute)
