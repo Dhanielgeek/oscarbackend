@@ -15,8 +15,7 @@ const corsOptions = {
       "http://localhost:5174",
       "http://localhost:5173/login"
 
-    ],
-    optionalSuccessStatus: 200,
+    ]
   };
   
   app.use(cors(corsOptions));
