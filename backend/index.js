@@ -9,7 +9,7 @@ require("dotenv").config()
 
 const db = require("./models")
 
-const corsOptions = {
+/*const corsOptions = {
     origin:(origin,callback)=>{
         if (origin === "http://localhost:5173" || origin ==="http://localhost:5174") {
             callback(null,true)
@@ -18,11 +18,12 @@ const corsOptions = {
         }
     },
     credentials: true,
-    allowedHeaders: ["Content-type", "Authorization"],
-    methods: ["GET","POST","PUT","DELETE"]
-  };
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET","POST","PUT","DELETE","OPTIONS"]
+  };*/
   
-  app.use(cors(corsOptions));
+  //app.use(cors(corsOptions));
+app.use(cors())
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api", blogRoute)
