@@ -34,7 +34,7 @@ const db = require("./models")
 //   })
 app.use(cors())
    app.use((req,res,next)=>{
-    console.log(res.getHeaders())
+    console.log(res.getHeaders() || "none")
     next()
   })
 app.use(express.urlencoded({extended:true}))
