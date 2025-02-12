@@ -47,7 +47,7 @@ try {
     const bloggerExist = await Admin.findOne({where: {email}})
     if (bloggerExist) {
         const err = new Error("email already in use")
-        err.stats = 400
+        err.status = 400
         return next(err)  
     }
     const salt = await bcrypt.genSalt(10);
