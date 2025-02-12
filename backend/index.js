@@ -1,17 +1,18 @@
 const express = require("express")
-const cors = require("cors")
 const errorHandler = require("./middlewares/errorHandler")
 const blogRoute = require("./routes/blogRoute")
 const imageRoute = require("./routes/imageRoute")
 const adminRoute = require("./routes/adminRoute")
 const app = express()
+const cors = require("cors")
+
 require("dotenv").config()
 
 const db = require("./models")
 
 /*const corsOptions = {
     origin:(origin,callback)=>{
-        if (origin === "http://localhost:5173" || origin ==="http://localhost:5174") {
+        if (!origin || origin === "http://localhost:5173" || origin ==="http://localhost:5174") {
             callback(null,true)
         }else{
             callback(new Error("Not allowed by cors"))
