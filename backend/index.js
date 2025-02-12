@@ -1,13 +1,11 @@
 const express = require("express")
+const cors = require("cors")
+require("dotenv").config()
 const errorHandler = require("./middlewares/errorHandler")
 const blogRoute = require("./routes/blogRoute")
 const imageRoute = require("./routes/imageRoute")
 const adminRoute = require("./routes/adminRoute")
 const app = express()
-const cors = require("cors")
-
-require("dotenv").config()
-
 const db = require("./models")
 
 /*const corsOptions = {
@@ -34,18 +32,8 @@ const db = require("./models")
 //     }
 //     next()
 //   })
-app.use(cors({
-    origin: "*",
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    methods:["GET","POST","PUT","DELETE","OPTIONS"]
-}))
-app.options("*", cors({
-    origin: "*",
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    methods:["GET","POST","PUT","DELETE","OPTIONS"]
-}))
+app.use(cors())
+
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api", blogRoute)
