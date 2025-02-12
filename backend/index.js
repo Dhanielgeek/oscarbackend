@@ -24,8 +24,18 @@ const db = require("./models")
   };*/
   
   //app.use(cors(corsOptions));
-app.use(cors())
-app.options("*", cors())
+app.use(cors({
+    origin: "*",
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods:["GET","POST","PUT","DELETE","OPTIONS"]
+}))
+app.options("*", cors({
+    origin: "*",
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods:["GET","POST","PUT","DELETE","OPTIONS"]
+}))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use("/api", blogRoute)
