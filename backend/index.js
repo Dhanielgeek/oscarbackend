@@ -6,6 +6,7 @@ const blogRoute = require("./routes/blogRoute");
 const imageRoute = require("./routes/imageRoute");
 const adminRoute = require("./routes/adminRoute");
 const app = express();
+app.set("trust proxy", 1)
 const db = require("./models");
 
 /*const corsOptions = {
