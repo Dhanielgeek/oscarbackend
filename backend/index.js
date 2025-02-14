@@ -21,8 +21,8 @@ const db = require("./models");
     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
   };*/
 
-const corsOption = ["http://localhost:5173"];
-app.use(cors(corsOption));
+//const corsOption = ["http://localhost:5173"];
+app.use(cors());
 
 //   app.use((req,res,next)=>{
 //     res.header("Access-Control-Allow-Origin", "*")
