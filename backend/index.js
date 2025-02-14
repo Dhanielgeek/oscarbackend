@@ -9,7 +9,7 @@ const app = express();
 app.set("trust proxy", 1)
 const db = require("./models");
 
-/*const corsOptions = {
+const corsOptions = {
     origin:(origin,callback)=>{
         if (!origin || origin === "http://localhost:5173" || origin ==="http://localhost:5174") {
             callback(null,true)
@@ -20,10 +20,10 @@ const db = require("./models");
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
-  };*/
+  };
 
 //const corsOption = ["http://localhost:5173"];
-app.use(cors());
+app.use(cors(corsOptions));
 
 //   app.use((req,res,next)=>{
 //     res.header("Access-Control-Allow-Origin", "*")
