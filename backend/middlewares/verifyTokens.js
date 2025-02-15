@@ -2,9 +2,8 @@ const jwt = require("jsonwebtoken")
 
 const checkToken=(req,res,next)=>{
     const authHeader = req.headers.authorization
-    const startWithBearer = authHeader.startsWith("Bearer")
 
-    if (authHeader && startWithBearer) {
+    if (authHeader) {
         const token=authHeader.split(" ")[1]
 
         jwt.verify(token, process.env.OSCARNEWMAN_ADMIN_TOKEN, (err,user)=>{
