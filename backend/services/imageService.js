@@ -9,7 +9,7 @@ const uploadImage = async (req, res, next) => {
       }
         const result = await cloudinary.uploader.upload(image.path,{recource_type:"image"});
       
-      res.status(201).json(result.url);
+      res.status(201).json({status: "success",message:"image uploaded successfully", mediaUrl: result.url});
     } catch (error) {
         const err = new Error(error.message)
         err.status = error.status
