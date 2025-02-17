@@ -11,7 +11,7 @@ const db = require("./models");
 
 const corsOptions = {
     origin:(origin,callback)=>{
-        if (!origin || origin === "http://localhost:5173" || origin ==="https://oscarnewman-fe.vercel.app/") {
+        if ( origin ==="https://oscarnewman-fe.vercel.app") {
             callback(null,true)
         }else{
             callback(new Error("Not allowed by cors"))
