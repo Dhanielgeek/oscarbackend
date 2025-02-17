@@ -9,21 +9,21 @@ const app = express();
 app.set("trust proxy", 1)
 const db = require("./models");
 
-const corsOptions = {
-    origin:(origin,callback)=>{
-        if ( origin ==="https://oscarnewman-fe.vercel.app") {
-            callback(null,true)
-        }else{
-            callback(new Error("Not allowed by cors"))
-        }
-    },
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    methods: ["GET","POST","PUT","DELETE","OPTIONS"]
-  };
+// const corsOptions = {
+//     origin:(origin,callback)=>{
+//         if ( origin ==="https://oscarnewman-fe.vercel.app") {
+//             callback(null,true)
+//         }else{
+//             callback(new Error("Not allowed by cors"))
+//         }
+//     },
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
+//   };
 
-//const corsOption = ["http://localhost:5173"];
-app.use(cors(corsOptions));
+const corsOption = ["https://oscarnewman-fe.vercel.app/"];
+app.use(cors(corsOption));
 
 //   app.use((req,res,next)=>{
 //     res.header("Access-Control-Allow-Origin", "*")
