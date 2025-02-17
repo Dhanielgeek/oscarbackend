@@ -7,7 +7,7 @@ const router  = require("express").Router()
 router.get("/getTopThree", topThree)
 router.get("/getBlogs", getBlogs)
 router.get("/getBlog/:id", getBlogById)
-router.post("/postBlogs", createBlog)
+router.post("/postBlogs",bloggerAuth, createBlog)
 router.put("/editBlog/:id",bloggerAuth, editBlog)
 router.delete("/deleteBlog/:id",bloggerAuth, deleteBlog)
 
