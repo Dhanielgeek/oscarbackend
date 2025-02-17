@@ -21,7 +21,10 @@ const db = require("./models");
 //     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 //   };
 
-const corsOption = ["https://oscarnewman-fe.vercel.app/"];
+const corsOption = {origin:["https://oscarnewman-fe.vercel.app/"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
+};
 app.use(cors(corsOption));
 
 //   app.use((req,res,next)=>{
