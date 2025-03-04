@@ -21,7 +21,7 @@ const db = require("./models");
 //     methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 //   };
 
-const corsOption = {origin:["https://oscarnewman-fe.vercel.app/"],
+const corsOption = {origin:["https://oscarnewman-fe.vercel.app/","https://oscarnewmangroup.org"],
     allowedHeaders: ["Content-Type", "Authorization"],
      methods: ["GET","POST","PUT","DELETE","OPTIONS"]
 };
