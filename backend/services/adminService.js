@@ -59,7 +59,9 @@ const getAllCeo = async(req,res,next)=>{
 const registerAdmin = async(req,res,next)=>{
     const {email, password, name} = req.body
 try {
-    const bloggerExist = await Admin.findOne({where: {email}})
+  console.log(email)
+    const bloggerExist = await Admin.findOne({where: {email:email}})
+    console.log("worked")
     if (bloggerExist) {
         const err = new Error("email already in use")
         err.status = 400
