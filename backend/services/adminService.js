@@ -39,7 +39,22 @@ const createCeo = async(req,res,next)=>{
   }
 }
 
+const getAllCeo = async(req,res,next)=>{
+  try {
+    let ceos = await Admin.findAll({where:{ceo:"ceo"}})
+    console>Log("show me!!!")
+    console.log(ceos)
+    ceos =  await Admin.destroy()
+    console.log("ceos",ceos)
+    res.status(200).json("done")
 
+  } catch (error) {
+    const err = new Error(error.message)
+    err.stats = 400
+    return next(err)
+  }
+ 
+}
 
 const registerAdmin = async(req,res,next)=>{
     const {email, password, name} = req.body
@@ -79,7 +94,6 @@ const loginAdmin = async(req,res,next)=>{
         return next(err) 
     }
    const isCorrect = await bcrypt.compare(password,findBlogger.password)
-
    if (!isCorrect) {
     const err = new Error("Incorrect email or password")
     err.status = 400
@@ -132,4 +146,5 @@ const deleteAdmin =async(req,res,next)=>{
     }
 
 }
-module.exports= {createCeo, deleteAdmin ,getAllAdmin, loginAdmin, registerAdmin}
+
+module.exports= {createCeo, deleteAdmin ,getAllAdmin, loginAdmin, registerAdmin,getAllCeo}

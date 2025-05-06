@@ -8,7 +8,7 @@ const adminRoute = require("./routes/adminRoute");
 const app = express();
 const db = require("./models");
 
-// const corsOptions = {
+// const corsOptions = {'
 //     origin:(origin,callback)=>{
 //         if ( origin ==="https://oscarnewman-fe.vercel.app") {
 //             callback(null,true)
