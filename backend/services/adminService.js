@@ -60,6 +60,11 @@ const registerAdmin = async(req,res,next)=>{
     const {email, password, name} = req.body
 try {
   console.log(email)
+  if (!email || !password || !name) {
+    const err = new Error("provide all the required fields")
+    err.status = 400
+    return next(err)
+  }
     const bloggerExist = await Admin.findOne({where: {email:email}})
     console.log("worked")
     if (bloggerExist) {
@@ -69,7 +74,7 @@ try {
     }
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
-    const createBlogger = await Admin.create({email,password:hashPassword,name,role: "blogger"})
+    const createBlogger = await Admin.create({email:email,password:hashPassword,name:name,role: "blogger"})
     if (!createBlogger) {
         const err = new Error("something went wrong")
         err.stats = 400
