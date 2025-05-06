@@ -7,7 +7,7 @@ const checkToken=(req,res,next)=>{
     if (authHeader) {
         const token=authHeader.split(" ")[1]
 
-        jwt.verify(token, OSCARNEWMAN_ADMIN_TOKEN, (err,user)=>{
+        jwt.verify(token, process.env.OSCARNEWMAN_ADMIN_TOKEN, (err,user)=>{
             if(err){
                return  res.status(400).json("invalid token")
             }
