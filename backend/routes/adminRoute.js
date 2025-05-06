@@ -8,6 +8,6 @@ router.post("/createCeo", createCeo)
 router.get("/getAllCeos", getAllCeo)
 router.post("/loginAdmin", loginAdmin)
 router.post("/registerAdmin", ceoAuth,registerAdmin)
-router.delete("/deleteAdmin/:id", ceoAuth,deleteAdmin)
+router.delete("/deleteAdmin/:id",  ceoAuth,deleteAdmin)
 
 module.exports = router

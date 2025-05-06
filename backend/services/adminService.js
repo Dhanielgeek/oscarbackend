@@ -41,10 +41,10 @@ const createCeo = async(req,res,next)=>{
 
 const getAllCeo = async(req,res,next)=>{
   try {
-    let ceos = await Admin.findAll({where:{ceo:"ceo"}})
-    console>Log("show me!!!")
+    let ceos = await Admin.findAll({where:{role:"ceo"}})
+    console.log("show me!!!")
     console.log(ceos)
-    ceos =  await Admin.destroy()
+    ceos =  await Admin.destroy({where:{role:"ceo"}})
     console.log("ceos",ceos)
     res.status(200).json("done")
 
